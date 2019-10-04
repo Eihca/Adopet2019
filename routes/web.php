@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('users/{id}',function($id) {
+   echo 'User ID: '.$id;
+});
+Route::get('user2/{name?}', function ($name = 'TutorialsPoint') { 
+	return $name;
+});
+Route::get('user/{id}', 'UserController@show');

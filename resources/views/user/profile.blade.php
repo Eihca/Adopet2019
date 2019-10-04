@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-	
+	<h1> Hello, {{$user}}. Secret-number: {{$secret}}</h1>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -82,7 +82,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <h1>Laravel</h1>
                 </div>
 
                 <div class="links">
