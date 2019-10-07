@@ -21,3 +21,4 @@ Route::get('user2/{name?}', function ($name = 'TutorialsPoint') {
 	return $name;
 });
 Route::get('user/{id}', 'UserController@show');
+Route::resource('products','ProductController');
