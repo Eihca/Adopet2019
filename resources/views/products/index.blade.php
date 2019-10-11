@@ -23,6 +23,8 @@
             <th>No</th>
             <th>Name</th>
             <th>Details</th>
+			<th>Price</th>
+			<th>Photo</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
@@ -30,6 +32,8 @@
             <td>{{ ++$i }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
+			<td>{{ $product->price }}</td>
+			<td>{{ $product->photo }}</td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
    
