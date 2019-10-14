@@ -30,6 +30,12 @@
                 {{ $product->price }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Photo:</strong>
+                <img class="photo" alt="photo" src="/products/{{ $product->id }}/photo">
+            </div>
+        </div>
 		
     </div>
 @endsection

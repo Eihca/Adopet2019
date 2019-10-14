@@ -41,10 +41,28 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-			'price' => 'required'
+			'price' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
   
-        Product::create($request->all());
+        $product = Product::create($request->all());
+  
+		if($request->hasFile('photo')){
+			$image = $request->file('photo');
+			$ext = $image->getClientOriginalExtension();
+			$product->photo = file_get_contents($image);
+			switch (strtolower($ext)) {
+				case "jpg":
+				case "jpeg":
+					$ext = "image/jpeg";
+					break;
+				case "png":
+					$ext = "image/png";
+					break;
+			}
+			$product->photo_mime = $ext;
+			$product->save();
+		};
    
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
@@ -83,12 +101,29 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required',			
-			'price' => 'required'
-
+            'detail' => 'required',
+ 			'price' => 'required',
+			'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
-  
+		
         $product->update($request->all());
+  
+		if($request->hasFile('photo')){
+			$image = $request->file('photo');
+			$ext = $image->getClientOriginalExtension();
+			$product->photo = file_get_contents($image);
+			switch (strtolower($ext)) {
+				case "jpg":
+				case "jpeg":
+					$ext = "image/jpeg";
+					break;
+				case "png":
+					$ext = "image/png";
+					break;
+			}
+			$product->photo_mime = $ext;
+			$product->save();
+		};
   
         return redirect()->route('products.index')
                         ->with('success','Product updated successfully');
@@ -106,5 +141,26 @@ class ProductController extends Controller
   
         return redirect()->route('products.index')
                         ->with('success','Product deleted successfully');
+    }
+  
+    /**
+     * Display the photo
+     *
+     * @param  the id of the product
+     * @return image in binary
+     */
+    public function photo($id = null)
+    {
+        $product = Product::find($id);
+		if ($product == null || $product->photo == null || $product->photo_mime == '') {
+            // not yet working though
+            redirect()->to('images/notfound.png');
+			return;
+		}
+		return response($product->photo)
+            ->header('Cache-Control', 'no-cache private')
+            ->header('Content-Type', $product->photo_mime)
+            ->header('Content-length', strlen($product->photo))
+            ->header('Content-Transfer-Encoding', 'binary');
     }
 }

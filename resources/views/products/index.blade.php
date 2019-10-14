@@ -33,7 +33,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
 			<td>{{ $product->price }}</td>
-			<td>{{ $product->photo }}</td>
+			<td><img class="photo" alt="photo" src="/products/{{ $product->id }}/photo"></td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
    
