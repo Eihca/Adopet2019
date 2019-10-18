@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
   
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
   
 class ProductController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+	{
         $products = Product::latest()->paginate(5);
   
         return view('products.index',compact('products'))
@@ -27,6 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
+		if (!Auth::check())
+			return redirect()->intended('login');
         return view('products.create');
     }
   
@@ -41,13 +44,13 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-			'price' => 'required',
+            'price' => 'required',
             'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
+        
   
         $product = Product::create($request->all());
-  
-		if($request->hasFile('photo')){
+        if($request->hasFile('photo')){
 			$image = $request->file('photo');
 			$ext = $image->getClientOriginalExtension();
 			$product->photo = file_get_contents($image);
@@ -87,6 +90,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+		if (!Auth::check())
+			return redirect()->intended('login');
         return view('products.edit',compact('product'));
     }
   
@@ -99,6 +104,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+		if (!Auth::check())
+			return redirect()->intended('login');
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
@@ -107,7 +114,8 @@ class ProductController extends Controller
         ]);
 		
         $product->update($request->all());
-  
+		
+		
 		if($request->hasFile('photo')){
 			$image = $request->file('photo');
 			$ext = $image->getClientOriginalExtension();
@@ -137,8 +145,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+		if (!Auth::check())
+			return redirect()->intended('login');
         $product->delete();
-  
         return redirect()->route('products.index')
                         ->with('success','Product deleted successfully');
     }

@@ -24,3 +24,7 @@ Route::get('user/{id}', 'UserController@show');
 Route::get('products/{id}/photo', 'ProductController@photo');
 Route::resource('products','ProductController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
