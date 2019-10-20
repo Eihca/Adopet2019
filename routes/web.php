@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('adopet.tryindex');
 });
 Route::get('users/{id}',function($id) {
    echo 'User ID: '.$id;
@@ -24,7 +24,7 @@ Route::get('user/{id}', 'UserController@show');
 
 Route::get('products/{id}/photo', 'ProductController@photo');
 
-Route::get('adopets', 'AdopetController@index');
+//Route::get('adopets', 'AdopetController@index');
 //Route::get('adopets/pets', 'AdopetController@pets');
 //Route::get('adopets/cart', 'AdopetController@cart');
 
@@ -34,4 +34,3 @@ Route::resource('pets','PetsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/admin', 'AdminController@index')->name('admin');

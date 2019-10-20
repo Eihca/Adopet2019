@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Our Products</h2>
+                <h2>Adopet Pet Catalogue</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('pets.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('pets.create') }}"> Add New Pet</a>
             </div>
         </div>
     </div>
@@ -20,32 +20,40 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
+            <th>ID</th>
+            <th>Class</th>
+			<th>Name</th>
 			<th>Price</th>
+			<th>Characteristics</th>
+			<th>Environment</th>
+			<th>Life Span</th>
 			<th>Photo</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($pets as $pet)
         <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $pet->name }}</td>
-            <td>{{ $pet->detail }}</td>
-			<td>{{ $pet->price }}</td>
-			<td><img class="photo" alt="photo" src="/products/{{$product->id}}/photo"></td>
+            <td>{{ $pet->id }}</td>
+            <td>{{ $pet->pet_class }}</td>
+			<td>{{ $pet->pet_name }}</td>
+			<td>{{ $pet->pet_price }}</td>
+            <td>{{ $pet->pet_char }}</td>
+			<td>{{ $pet->pet_envi }}</td>
+			<td>{{ $pet->pet_life }}</td>
+			<td> <img class="photo" alt="photo" src="/adopet/adopetpics/{{ $pet->pet_pic }}">
+			
+			</td>
 
             <td>
-                <form id="form{{$product->id}}" action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form id="form{{$pet->id}}" action="{{ route('pets.destroy',$pet->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('pets.show',$pet->id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('pets.edit',$pet->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="button" class="btn btn-danger" onclick="verifyDelete({{$product->id}})">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="verifyDelete({{$pet->id}})">Delete</button>
                 </form>
             </td>
         </tr>
@@ -57,10 +65,10 @@
 	function verifyDelete(id){
 		//alert(id)
 		delId = id;
-		$('#product')[0].innerHTML = id;
+		$('#pet')[0].innerHTML = id;
 		$('#myModal').modal()
 	}
-	function deleteProduct(){
+	function deletePet(){
 		$('#form' + delId)[0].submit();
 	}
 	</script>
@@ -74,16 +82,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure to delete the product #<span id="product"></span></p>
+        <p>Are you sure to delete the pet #<span id="pet"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="deleteProduct()">Ok</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="deletePet()">Ok</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
 </div>
   
-    {!! $products->links() !!}
+    {!! $pets->links() !!}
       
 @endsection

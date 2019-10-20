@@ -42,13 +42,19 @@ class PetsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-            'price' => 'required',
+			'pet_class' => 'required|string', 
+            'pet_name' => 'required',
+            'pet_price' => 'required',
+			'pet_char' =>'required',
+            //'pet_envi' =>'required',
+			//'pet_life' =>'required', 
+			'pet_pic' =>'required',
+			
             //'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
         
-  
+		$pet = Pet::create($request->all());
+		$pet->save();
         /*$pet = Pet::create($request->all());
         if($request->hasFile('photo')){
 			$image = $request->file('photo');
@@ -68,13 +74,13 @@ class PetsController extends Controller
 		};
    */
         return redirect()->route('pets.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Pet added successfully.');
     }
    
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Pet  $pet
      * @return \Illuminate\Http\Response
      */
     public function show(Pet $pet)
@@ -85,7 +91,7 @@ class PetsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Pet  $pet
      * @return \Illuminate\Http\Response
      */
     public function edit(Pet $pet)
@@ -99,7 +105,7 @@ class PetsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Pet  $pet
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pet $pet)
@@ -107,14 +113,18 @@ class PetsController extends Controller
 		if (!Auth::check())
 			return redirect()->intended('login');
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
- 			'price' => 'required',
-			'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
+			'pet_class' => 'required|string', 
+            'pet_name' => 'required',
+            'pet_price' => 'required',
+			'pet_char' =>'required',
+            //'pet_envi' =>'required',
+			//'pet_life' =>'required', 
+			'pet_pic' =>'required',
+			//'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 		
         $pet->update($request->all());
-		
+		/*
 		
 		if($request->hasFile('photo')){
 			$image = $request->file('photo');
@@ -132,15 +142,15 @@ class PetsController extends Controller
 			$pet->photo_mime = $ext;
 			$pet->save();
 		};
-  
+		*/
         return redirect()->route('pets.index')
-                        ->with('success','Product updated successfully');
+                        ->with('success','Pet updated successfully');
     }
   
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Pet  $pet
      * @return \Illuminate\Http\Response
      */
     public function destroy(Pet $pet)
@@ -149,13 +159,13 @@ class PetsController extends Controller
 			return redirect()->intended('login');
         $pet->delete();
         return redirect()->route('pets.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Pet deleted successfully');
     }
   
     /**
      * Display the photo
      *
-     * @param  the id of the product
+     * @param  the id of the pet
      * @return image in binary
      */
     /*public function photo($id = null)

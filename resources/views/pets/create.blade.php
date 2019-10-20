@@ -1,13 +1,13 @@
-@extends('layouts.app')<!--@extends('products.layout')-->
+@extends('layouts.app')
   
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Product</h2>
+            <h2>Add New Pet</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('pets.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,33 +23,65 @@
     </div>
 @endif
    
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+		 <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <strong>Class:</strong>
+                <select name = "pet_class" class="form-control">
+					<option value=""> Choose from the ff: </option>
+					<option value="Cat"> Cat </option>
+					<option value="Dog"> Dog </option>
+					<option value="Hamster"> Hamster </option>
+					<option value="bird"> bird</option>
+					<option value="Turtle"> Turtle</option>
+					<option value="fish"> Fish </option>
+				</select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Detail:</strong>
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                <strong>Name:</strong>
+                <input type="text" name="pet_name" class="form-control" placeholder="Name">
             </div>
         </div>
 		<div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Price:</strong>
-                <textarea class="form-control" style="height:150px" name="price" placeholder="Price"></textarea>
+                <input type="text" class="form-control" name="pet_price" placeholder="Price">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Characteristics: </strong>
+                <textarea class="form-control" style="height:150px" name="pet_char" placeholder="Characteristics"></textarea>
+            </div>
+        </div>
+		<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Environment: </strong>
+                <textarea class="form-control" style="height:150px" name="pet_envi" placeholder="Environment"></textarea>
+            </div>
+        </div>
+		<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Life Span:</strong>
+                <input type="text" class="form-control" name="pet_life" placeholder="Life Span">
+            </div>
+        </div>
+		<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Picture Name with file extension:</strong>
+                <input type="text" class="form-control" name="pet_pic" placeholder="Picture Name with file extension">
+            </div>
+        </div>
+        <!--<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="form-group">
 					<input id="photo" type="file" class="form-control" name="photo" accept="image/*">
 				</div>
-            </div>
+            </div>-->
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
