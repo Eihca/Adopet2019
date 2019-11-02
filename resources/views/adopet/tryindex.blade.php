@@ -5,15 +5,15 @@
                 <h2> Find your furrendly compawnion today! </h2>
             </section>
             <section class="collage">
-                <a href ="adopet/Petpage.php#dogsec">
+                <a href ="{{ url('adopets/petpage#dogsec')}}">
                     <div class="single">
-                        <img alt="Dog" src="adopet/adopetpics/menurealdog.jpg" />
+                        <img alt="Dog" src=" {{asset('adopet/adopetpics/menurealdog.jpg')}}" />
                         <div class="grp_text">
                             <h1>Dog</h1>
                         </div>
                     </div>
                 </a>
-                <a href ="adopet/Petpage.php#catsec">
+                <a href ="{{ url('adopets/petpage#catsec') }}">
                         <div class="single">
                             <img alt = "cat" src="adopet/adopetpics/menurealcat.jpg" />
                             <div class="grp_text">
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                 </a>
-                <a href ="adopet/Petpage.php#hamstersec">
+                <a href ="{{ url('adopets/petpage#hamstersec') }}">
                     <div class="single">
                         <img alt = "Hamster" src="adopet/adopetpics/menurealhams.jpg" />
                         <div class="grp_text">
@@ -31,7 +31,7 @@
                 </a>
             </section>
             <section class="collage">
-                <a href ="adopet/Petpage.php#birdsec">
+                <a href ="{{ url('adopets/petpage#birdsec')}}">
                     <div class="single">
                         <img alt ="Bird" src="adopet/adopetpics/menurealbird.jpg" />
                         <div class="grp_text">
@@ -39,17 +39,17 @@
                         </div>
                     </div>
                 </a>
-                <a href ="adopet/Petpage.php#turtlesec">
+                <a href ="{{ url('adopets/petpage#turtlesec') }}">
                     <div class="single">
-                        <img src="adopet/adopetpics/menurealturt.jpg" />
+                        <img src="{{asset('adopet/adopetpics/menurealturt.jpg')}}" />
                         <div class="grp_text">
                             <h1>Turtle</h1>
                         </div>
                     </div>
                 </a>
-                <a href ="adopet/Petpage.php#fishsec">
+                <a href ="{{ url('adopets/petpage#fishsec') }}">
                     <div class="single">
-                        <img src="adopet/adopetpics/menurealfish.jpg" />
+                        <img src="{{asset('adopet/adopetpics/menurealfish.jpg')}}" />
                         <div class="grp_text">
                             <h1>Fish</h1>
                         </div>

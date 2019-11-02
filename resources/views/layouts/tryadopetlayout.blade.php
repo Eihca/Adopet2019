@@ -9,8 +9,9 @@
         <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"integrity="sha384DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <link rel = "stylesheet" type = "text/css" href = "{{ url('/adopet/adopet.css') }}" /> 
-		<link rel = "stylesheet" type = "text/css" href ="{{ url('/adopet/swiper.min.css') }}">
+         
+		<link rel = "stylesheet" type = "text/css" href ="{{ asset('css/swiper.min.css') }}">
+		<link rel = "stylesheet" type = "text/css" href = "{{ asset('css/adopet.css') }}" />
     </head>
     
     <body>
@@ -20,9 +21,9 @@
                     <div class="changimg"></div>
                 </a>
                 <ul>
-                    <li> <a href="#"> Home </a> </li>
-                    <li> <a href="adopet/Petpage.php"> Pets </a> </li>
-                    <li> <a href="adopet/petcart.php"> Cart </a> </li>
+                    <li> <a href="{{ url('/') }}"> Home </a> </li>
+                    <li> <a href="{{ url('/petpage') }}"> Pets </a> </li>
+                    <li> <a href="{{ url('/cart') }}"> Cart </a> </li>
                     <li> <a href="#footer"> About </a> </li>
                 </ul>
 				<a href= "{{ url('/home') }}">

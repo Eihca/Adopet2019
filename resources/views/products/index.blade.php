@@ -27,9 +27,10 @@
 			<th>Photo</th>
             <th width="280px">Action</th>
         </tr>
+		
         @foreach ($products as $product)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
 			<td>{{ $product->price }}</td>
@@ -46,6 +47,30 @@
                     @method('DELETE')
       
                     <button type="button" class="btn btn-danger" onclick="verifyDelete({{$product->id}})">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+		
+		@foreach ($dogs as $dog)
+        <tr>
+            <td>{{ $dog->id }}</td>
+            <td>{{ $dog->name }}</td>
+            <td>{{ $dog->detail }}</td>
+			<td>{{ $dog->price }}</td>
+			<td><img class="photo" alt="photo" src="/products/{{$dog->id}}/photo"></td>
+
+            <td>
+                <form id="form{{$dog->id}}" action="{{ route('products.destroy',$dog->id) }}" method="POST">
+   
+                    <a class="btn btn-info" href="{{ route('products.show',$dog->id) }}">Show</a>
+    
+                    <a class="btn btn-primary" href="{{ route('products.edit',$dog->id) }}">Edit</a>
+   
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="button" class="btn btn-danger" onclick="verifyDelete({{$dog->id}})">Delete</button>
                 </form>
             </td>
         </tr>
@@ -84,6 +109,6 @@
   </div>
 </div>
   
-    {!! $products->links() !!}
+
       
 @endsection

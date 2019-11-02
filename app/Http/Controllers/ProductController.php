@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
   
 use App\Product;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
   
@@ -15,10 +16,13 @@ class ProductController extends Controller
      */
     public function index()
 	{
-        $products = Product::latest()->paginate(5);
+		$products = DB::table('products')->select('*')->where('name', 'mount')->get();    
+		$dogs = DB::table('products')->select('*')->where('name', 'dogs')->get();   
+		return view ('products.index', compact('products','dogs'))->with('i', (request()->input('page', 1) - 1) * 5);
+		/*$products = Product::latest()->paginate(5);
   
         return view('products.index',compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5);*/
     }
    
     /**
