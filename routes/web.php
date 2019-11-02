@@ -20,21 +20,15 @@ Route::get('user2/{name?}', function ($name = 'TutorialsPoint') {
 });
 Route::get('user/{id}', 'UserController@show');
 */
+Route::get('user/photo', 'UserController@photo');
+Route::resource('user', 'UserController');
 Route::get('products/{id}/photo', 'ProductController@photo');
 
-Route::resource('/', 'AdopetController');
+Route::get('/petpage', 'PetsController@petpage');
 
-Route::get('/read', function(){
-	$products = DB::select('SELECT * from products WHERE name = ?', ['mount']);
-	
-	foreach($products as $prod){
-		return $products;
-	}
+Route::get('/cart', 'PetsController@cart');
 
-});
-
-Route::get('/petpage', 'AdopetController@petpage');
-Route::get('/cart', 'AdopetController@cart');
+Route::get('/', 'PetsController@home');
 
 Route::resource('products','ProductController');
 

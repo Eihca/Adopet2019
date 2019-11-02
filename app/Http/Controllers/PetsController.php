@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
   
 use App\Pet;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
   
@@ -15,7 +16,10 @@ class PetsController extends Controller
      */
     public function index()
 	{
-        $pets = Pet::latest()->paginate(5);
+        if (!Auth::check())
+			return redirect()->intended('login');
+        
+		$pets = Pet::latest()->paginate(5);
   
         return view('pets.index',compact('pets'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -161,7 +165,30 @@ class PetsController extends Controller
         return redirect()->route('pets.index')
                         ->with('success','Pet deleted successfully');
     }
-  
+	
+  	public function home(){
+		return view('adopet.tryindex');
+	}
+	
+	public function petpage(){
+		$cats = DB::table('pets')->select('*')->where('pet_class', 'Cat')->get();
+		$dogs = DB::table('pets')->select('*')->where('pet_class', 'Dog')->get();
+		/*$hams = DB::table('pets')->select('*')->where('pet_class', 'Hamster')->get();
+		$birds = DB::table('pets')->select('*')->where('pet_class', 'Bird')->get();
+		$turts = DB::table('pets')->select('*')->where('pet_class', 'Turtle')->get();
+		$fish = DB::table('pets')->select('*')->where('pet_class', 'Fish')->get();*/
+
+		return view('adopet.PetPage', compact('cats','dogs'/*,'hams','birds','turts', 'fish'*/));
+	}
+	public function cart(){
+		return view('adopet.petcart');
+	}
+	
+	public function add(){
+		return view('adopet.petcart');
+	}
+	
+
     /**
      * Display the photo
      *
@@ -182,4 +209,6 @@ class PetsController extends Controller
             ->header('Content-length', strlen($pet->photo))
             ->header('Content-Transfer-Encoding', 'binary');
     }*/
+	
+	
 }

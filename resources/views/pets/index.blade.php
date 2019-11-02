@@ -2,11 +2,11 @@
  
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Adopet Pet Catalogue</h2>
+        <div class="col-lg-12 margin-tb" style="text-align: center" >
+            <div class="pull-left" style="margin-bottom:20px" >
+                <h2>Pet Catalogues</h2>
             </div>
-            <div class="pull-right">
+			<div class="pull-right" style="margin-bottom:20px">
                 <a class="btn btn-success" href="{{ route('pets.create') }}"> Add New Pet</a>
             </div>
         </div>
@@ -24,11 +24,11 @@
             <th>Class</th>
 			<th>Name</th>
 			<th>Price</th>
-			<th>Characteristics</th>
-			<th>Environment</th>
+			<th width="250px" >Characteristics</th>
+			<th width="250px">Environment</th>
 			<th>Life Span</th>
 			<th>Photo</th>
-            <th width="280px">Action</th>
+            <th width="100px">Action</th>
         </tr>
         @foreach ($pets as $pet)
         <tr>

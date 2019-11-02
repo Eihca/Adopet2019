@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use DB;
+use App\Pets;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdopetController extends Controller
 {
@@ -11,7 +13,6 @@ class AdopetController extends Controller
 	}
 	public function petpage(){
 		$cats = DB::table('pets')->select('*')->where('pet_class', 'Cat')->get();
-		
 		$dogs = DB::table('pets')->select('*')->where('pet_class', 'Dog')->get();
 		/*$hams = DB::table('pets')->select('*')->where('pet_class', 'Hamster')->get();
 		$birds = DB::table('pets')->select('*')->where('pet_class', 'Bird')->get();
@@ -24,8 +25,8 @@ class AdopetController extends Controller
 		return view('adopet.petcart');
 	}
 	
-	public function add($id){
-		
+	public function add(Pet $pets){
+		return redirect()->route('adopet.PetPage');
 	}
 	
 	public function rmv(){

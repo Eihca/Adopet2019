@@ -17,7 +17,7 @@
     <body>
         <header>
             <nav>
-                <a href="{{ url('adopets') }}">
+                <a href="{{ url('/') }}">
                     <div class="changimg"></div>
                 </a>
                 <ul>

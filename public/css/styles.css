@@ -1,3 +1,20 @@
 .photo{
-    max-width: 100%;
+    width:180px;
+}
+
+main {
+    padding: 50px;
+     
+}
+.table .btn-info, .table .btn-primary, .table .btn-danger{
+    width: 100%;
+    margin-bottom: 5px;
+	 
+}
+table{
+	text-align: center;  
+}
+
+.userpic{
+	width:30px;
 }
