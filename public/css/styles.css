@@ -1,20 +1,76 @@
-.photo{
-    width:180px;
-}
-
 main {
     padding: 50px;
      
 }
+
+table{
+	text-align: center;  
+}
+
 .table .btn-info, .table .btn-primary, .table .btn-danger{
     width: 100%;
     margin-bottom: 5px;
 	 
 }
-table{
-	text-align: center;  
+
+.photo{
+    width:180px;
+	height:130px;
 }
 
 .userpic{
 	width:30px;
+}
+
+.showform{
+	padding:0 70px;
+	font-size: 30px;
+}
+
+/*show*/
+.leftshow{
+	width:50%;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	margin: auto 0;
+
+}
+.rightshow{
+	width:50%;
+	display: block;
+	padding: 50px 0;
+	margin: auto 0;
+	font-size: 20px;
+}
+
+.showphoto{
+	width:70%;
+	margin: 0 auto;
+}
+.cardholde{
+	padding: 0 50px;
+	margin: auto 0;
+	justify-content:center;
+	font-weight: 1000px;
+
+}
+.containcard{
+	border: solid 5px chocolate;
+	border-radius: 30px;
+	display:flex; 
+	padding: 30px 50px;
+	margin: auto 0;	
+	box-shadow: 4px 4px 40px 5px #CDCDCD;
+}
+.orgbtn{
+	background-color: orange;
+}	
+.col{
+	color: chocolate;
+}
+.spced{
+	margin-top: 1px;
+	margin-bottom: 1px;
+	
 }

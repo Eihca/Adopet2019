@@ -22,7 +22,7 @@
         </div>
     @endif
   
-    <form action="{{ route('pets.update',$pet->id) }}" method="POST" enctype="multipart/form-data">
+    <form class = "showform" action="{{ route('pets.update',$pet->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 		

@@ -5,7 +5,7 @@
                 <h2> Find your furrendly compawnion today! </h2>
             </section>
             <section class="collage">
-                <a href ="{{ url('adopets/petpage#dogsec')}}">
+                <a href ="{{ url('/petpage#dogsec')}}">
                     <div class="single">
                         <img alt="Dog" src=" {{asset('adopet/adopetpics/menurealdog.jpg')}}" />
                         <div class="grp_text">
@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </a>
-                <a href ="{{ url('adopets/petpage#catsec') }}">
+                <a href ="{{ url('/petpage#catsec') }}">
                         <div class="single">
                             <img alt = "cat" src="adopet/adopetpics/menurealcat.jpg" />
                             <div class="grp_text">
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                 </a>
-                <a href ="{{ url('adopets/petpage#hamstersec') }}">
+                <a href ="{{ url('/petpage#hamstersec') }}">
                     <div class="single">
                         <img alt = "Hamster" src="adopet/adopetpics/menurealhams.jpg" />
                         <div class="grp_text">
@@ -31,7 +31,7 @@
                 </a>
             </section>
             <section class="collage">
-                <a href ="{{ url('adopets/petpage#birdsec')}}">
+                <a href ="{{ url('/petpage#birdsec')}}">
                     <div class="single">
                         <img alt ="Bird" src="adopet/adopetpics/menurealbird.jpg" />
                         <div class="grp_text">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </a>
-                <a href ="{{ url('adopets/petpage#turtlesec') }}">
+                <a href ="{{ url('/petpage#turtlesec') }}">
                     <div class="single">
                         <img src="{{asset('adopet/adopetpics/menurealturt.jpg')}}" />
                         <div class="grp_text">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </a>
-                <a href ="{{ url('adopets/petpage#fishsec') }}">
+                <a href ="{{ url('/petpage#fishsec') }}">
                     <div class="single">
                         <img src="{{asset('adopet/adopetpics/menurealfish.jpg')}}" />
                         <div class="grp_text">

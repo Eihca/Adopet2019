@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
   
 use App\Pet;
+use App\Cart;
 use DB;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
   
@@ -173,21 +175,28 @@ class PetsController extends Controller
 	public function petpage(){
 		$cats = DB::table('pets')->select('*')->where('pet_class', 'Cat')->get();
 		$dogs = DB::table('pets')->select('*')->where('pet_class', 'Dog')->get();
-		/*$hams = DB::table('pets')->select('*')->where('pet_class', 'Hamster')->get();
-		$birds = DB::table('pets')->select('*')->where('pet_class', 'Bird')->get();
+		$hams = DB::table('pets')->select('*')->where('pet_class', 'Hamster')->get();
+		$birds = DB::table('pets')->select('*')->where('pet_class', 'bird')->get();
 		$turts = DB::table('pets')->select('*')->where('pet_class', 'Turtle')->get();
-		$fish = DB::table('pets')->select('*')->where('pet_class', 'Fish')->get();*/
+		$fish = DB::table('pets')->select('*')->where('pet_class', 'Fish')->get();
 
-		return view('adopet.PetPage', compact('cats','dogs'/*,'hams','birds','turts', 'fish'*/));
+		return view('adopet.PetPage', compact('cats','dogs','hams','birds','turts', 'fish'));
 	}
 	public function cart(){
 		return view('adopet.petcart');
 	}
 	
-	public function add(){
+	public function addtocart(Request $request, $id){
+		$pet = Pet::find($id);
+		$oldCart = Session::has('cart') ? Session::get('cart') : null;
+		$cart = new Cart ($oldCart);
+		$cart->add($pet, $pet->id);
+		
+		$request->session()->put('cart', $cart);
+		dd($request->session()->get('cart'));
 		return view('adopet.petcart');
 	}
-	
+
 
     /**
      * Display the photo
