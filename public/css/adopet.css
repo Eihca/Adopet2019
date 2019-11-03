@@ -1,0 +1,747 @@
+/*adopet home page*/
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+header nav a div {
+    width: 258px;
+    height: 80px;
+    float: left;
+}
+
+header .changimg {
+    background-image: url('/images/adopetpics/changed.png');
+}
+
+header nav {
+    padding: 10px 30px;
+    background-color: rgba(255, 255, 255,0.90);
+    width: 100%;
+    height: 75px;
+    box-shadow: 0 0 15px 3px #817085;
+}
+
+header nav ul li {
+    list-style: none;
+    float: left;
+    font-size: 25px;
+    display: inline-block;
+}
+
+header nav ul li a {
+    width: 60px;
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+    color: gray;
+    line-height: 100px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+header nav ul li a:hover {
+    color: black;
+}
+header #adminopt{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+#home-main {
+    width: 100%;
+    height: 1950px;
+    padding-top: 90px;
+    display: block;
+}
+
+.main-banner-div {
+    width: 100%;
+    height: 600px;
+    background-image: url('/images/adopetpics/mainbanner.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.main-banner-div h2 {
+    text-align: center;
+    padding-top: 450px;
+    font-family: 'Elsie Swash Caps', cursive;
+    font-size: 60px;
+    font-weight: 30;
+    color: chocolate;
+    text-shadow: 1px 1px 2px black;
+    
+}
+
+.secondsec {
+    width: 100%;
+    height: 400px;
+    display: flex;
+}
+
+.secondstriptext {
+    width: 100%;
+    font-family: 'Elsie Swash Caps', cursive;
+    font-weight: 20;
+    text-align: center;
+    padding: 50px 0;
+    line-height: 1.6;
+    text-shadow: 0 2px 30px 3px black;
+    background-color: #eee;
+}
+
+.secondstriptext h3 {
+    font-size: 40px;
+    color: #EB7E10;
+    text-shadow: none;
+}
+
+.secondstriptext h2 {
+    font-size: 50px;
+    text-transform: UpperCase;
+    font-family: 'Luckiest Guy', cursive;
+    color: #AB5827;
+    text-shadow: none;
+}
+
+.secondstriptext p {
+    padding: 0px 50px;
+    font-size: 24px;
+    font-family: 'Fira Sans', sans-serif;
+    color: grey;
+    text-shadow: none;
+}
+
+.outercollage{
+    width:100%;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+.collage {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    height: 450px;
+}
+
+.single {
+    width: 350px;
+    height: 350px;
+    padding: 25px;
+    background: rgb(139,69,19);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s ease-out;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.single:hover {
+    transform: scale(1.1);
+    z-index: 1;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+
+.single:hover:before {
+    opacity: 1;
+    border-radius: 50%;
+}
+
+.single:hover .grp_text h1 {
+    transform: scale(1.1);
+    position: relative;
+    color: white;
+    transform: scale(1.0);
+    transition: 0.1s;
+}
+
+.single:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,black,transparent);
+    z-index: 2;
+    transition: 0.1s;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.single img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.grp_text {
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.grp_text h1 {
+    color: transparent;
+    font-family: 'Elsie Swash Caps', cursive;
+}
+
+#footer {
+    width: 100%;
+    display: block;
+    padding: 0;
+    font-family: 'Fira Sans', sans-serif;
+	margin: 0 auto;
+	justify-content:center;
+	align-items:center;
+}
+
+.top {
+    background-image: url('/images/adopetpics/petfooter.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    height: 100%;
+	margin: 0 auto;
+}
+
+.middle {
+    padding-top: 180px;       
+    width: 100%;
+    text-align: center;
+    display: block;
+    background-color: transparent;
+}
+
+.foote {
+    font-size: 18px;
+    display: flex;
+    background-color: #eee;
+    box-shadow: 2px -5px 15px 1px #A1A1A1;
+    height: 170px;
+
+}
+
+.footeleft{
+    color: black;
+    text-align: left;
+    padding: 30px;
+    width: 15%;
+}
+
+.footeright{
+    width: 85%;
+    display: flex;
+}
+
+.footeright div{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footeright .foundersdescription{
+    padding: 30px;
+    border-left: 3px solid chocolate;
+    overflow:auto;
+}
+
+.footeright img{
+    height: 170px;
+}
+
+.footeright .yvonne{
+    position: absolute;
+    right: 0;
+float: right;
+}
+
+.footeright .cath{
+    position: absolute;
+    right: 180px;
+}
+
+.footeright .henb{            
+    position: absolute;
+    right: 320px;
+}
+
+.lastchild{
+    background-color: chocolate;
+    color: #eee;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: #D2691E;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn i {
+    line-height: 90px;
+    font-size: 26px;
+    transition: 0.2s linearl;
+}
+
+.btn:hover i {
+    transform: scale(1.3);
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: #D2691E;
+    transform: rotate(45deg);
+    left: -110;
+    top: 90%;
+}
+
+.btn:hover::before {
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+@keyframes aaa {
+    0% {
+        left: -110%;
+        top: 90%;
+    }
+
+    50% {
+        left: 10%;
+        top: -30%;
+    }
+
+    100% {
+        top: -10%;
+        left: -10%;
+    } 
+}
+
+/*adopet pet page*/
+#petpage-main {
+    width: 100%;
+    height: auto; 
+    padding-top: 150px;
+    justify-content: center;
+    display: block;
+    align-items:center;
+    background-color: white;
+}
+
+#petpage-body h1{
+    font-family: 'Luckiest Guy';
+    font-size: 50px;
+    width:100%;
+    text-align: center;
+    background: linear-gradient(to right, #F37335, #FDC830); 
+}
+
+#catsec, #turtlesec, #dogsec, #hamstersec, #fishsec, #birdsec{
+    width: 100%;
+    display:block;
+}
+
+#turtlesec, #dogsec, #hamstersec, #fishsec, #birdsec{
+    margin-top: 50px;
+}
+
+#fishsec{
+    margin-bottom: 100px;
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: transparent;
+}    
+.swiper-slide {
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    width: auto;
+    height: 290px;
+    background-color: white;
+    padding: 20px 20px;
+    box-shadow: 4px 4px 34px 3px #D4D4D4;
+}
+
+.swiper-slide .slide-img{
+    width:300px;
+    height:250px;
+    overflow: hidden;
+}
+.swiper-slide .slide-img img{
+    width:100%;
+    height:100%;
+}
+
+.swiper-slide .slide-name{
+    box-sizing: border-box;
+    width:100%;
+    height: 50px;
+}
+
+.buttons{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 0;
+    border: solid 1px transparent;
+    padding: 0.5px 1px;
+    color: black;
+    background-color: transparent;
+    font-family: 'Elsie Swash Caps', cursive;
+    font-size: 24px;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+}     
+ 
+.buttons:hover{
+    font-size: 22px;
+    color: chocolate;
+}
+
+.swiper-slide .right-slide{
+    display: none;
+    background-color: white;
+    padding: 20px;
+    justify-content:center;
+}
+
+.right-slide div{
+    display: none;
+    width: 300px;
+    background-color: white;
+    margin: auto 0;
+}
+
+#fishsec .right-slide div, #birdsec .right-slide div{
+    display: none;
+    width: 400px;
+    background-color: white;
+    margin: auto 0;
+}
+
+.pformat{
+    font-size: 28px;
+    font-family: 'Lato', sans-serif;
+}
+.pformat{
+    font-size: 28px;
+    font-family: 'Lato', sans-serif;
+    color: chocolate;
+}
+.lformat{
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    color: chocolate;
+}
+.rsformat{
+    font-size:22px;
+    padding: 10px 0;
+    margin-left: 3px;
+    font-family: 'Lato', sans-serif;
+}
+
+.inputtext{
+    display:none;
+    background:transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    color: chocolate;
+    text-shadow: 1px 2px 1px #808080;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Elsie Swash Caps', cursive;
+}
+
+.adopetbtn{
+    text-align: center;
+    text-decoration: none;
+    margin: auto 0;
+    border: solid 5px chocolate;
+    padding: 4px 15px;
+    color: chocolate;
+    background-color: transparent;
+    border-radius: 50px;
+    font-family: 'Luckiest Guy';
+    font-weight: 500;
+    font-size: 25px;
+    height: 80px;
+    position:absolute;
+    right: 60px;
+    bottom:45px;
+}
+
+#turtlesec .adopetbtn{
+    right: 60px;
+    bottom:35px;
+}
+
+.adopetbtn:hover{
+    text-align: center;
+    text-decoration: none;
+    border: solid 5px chocolate;
+    padding: 15px 15px;
+    color: white;
+    background: linear-gradient(to right, #F37335, #FDC830); 
+    box-shadow: 4px 4px 40px 5px #CDCDCD;
+    text-shadow: 1px 1px 1px #949494;
+}
+
+.closebtn{
+    display: none;
+    height: 360px;
+    width: auto;
+    font-size: 20px;
+}
+
+.closebtn button{
+    height: 290px;
+    width: auto;
+    font-size: 30px;
+    background-color: chocolate;
+    text-decoration: none;
+    margin: auto 0;
+    border: solid 0.5px chocolate;
+    color: white;
+    padding-left:5px;
+    padding-right:5px;
+}
+.closebtn button:hover{
+    background: linear-gradient(to bottom, #F37335, #FDC830);
+    color: white;
+}
+
+/*petcart page*/
+#cart-body{
+    display:block;
+}
+#cart-main{
+    padding: 150px 100px;
+    text-align:center;
+    width: 1145px;
+    height: auto; 
+    padding-top: 150px;
+    justify-content: center;
+    display: block;
+    align-items:center;
+    background-color: white;
+	margin: 0 auto;
+	overflow:auto;
+}
+#cart-main img {
+    width: 200px;
+    height: 150px;
+}
+.addtocartsection{
+    padding: 30px;
+    justify-content:center;
+    background-color: whitesmoke;
+    box-shadow: 0 0 7px 3px #817085;
+    width: 100%;
+}
+table { 
+    border-collapse: separate; 
+    border-spacing: 0 10px; 
+    margin-top: -10px; /* correct offset on first border spacing if desired */
+    font-size: 16px;
+    font-family: 'Lato';
+}
+td {
+    border: solid 1px #000;
+    border-style: solid none;
+    padding: 10px;
+    background-color: transparent;
+    text-align: center;
+}
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+th{
+    padding: 20px;
+}
+tr:nth-child(even){
+    background-color: chocolate;
+    border-radius: 50px;
+    color: white;
+    text-shadow: 3px 3px 5px black;
+}
+.removebtn{
+    width: 40px;
+    height: 40px;
+    background-image: url("/images/adopetpics/list_remove (1).png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.buybtn{
+    border-radius: 30px;
+    background: linear-gradient(to right, #F37335, #FDC830) ;
+    padding: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px black;
+    color: white;
+    font-size: 30px;
+    width: auto;
+}
+.buybtn:hover{
+    box-shadow: 0 0 7px 3px #817085;
+}
+.buytr{
+    margin:0;
+    padding:0;
+    border: 0;
+    background-color: transparent;
+}
+           
+.closediv{
+	text-align:right;
+}
+.close{
+	width: 40px;
+	color: white;
+	border:0;
+	padding:0;
+	margin:0;
+	background-color:red;
+	opac
+	font-size: 20px;
+	border-radius: 25px;
+	border: 2px solid white;
+	padding: 5px 10px;
+	overflow: visible;
+	box-shadow: 5px 5px 2px #888888;
+	position: relative;
+}
+.close: hover{
+	opacity: 1;
+}
+#box {
+	display:none;
+	width: 300px;
+	padding:30px;
+	position:fixed;
+	z-index: 1;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	background-image: url('/images/adopetpics/formbg.jpg');
+	text-align:center;
+	box-shadow: 2px 2px 8px 2px black;
+	font-family: 'Luckiest Guy';
+}
+#box h1{
+	color:white;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 50px;
+	color: whitesmoke;
+	font-weight: 30;
+	text-shadow: 1px 1px 5px black;
+	
+}
+.inputs{
+	border:0;
+	background:black;
+	opacity: 0.5;
+	filter: alpha(opacity=90);
+	display:block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid black;
+	padding: 15px 10px;
+	width: 200px;
+	outline:none;
+	color:white;
+	border-radius: 25px;
+	transition: 0.25s;
+	font-family: 'Georgia';
+	font-size: 20px;
+	
+}
+#box input[type='text']:focus, form [type='password']:focus{
+	width:280px;
+	border-color:orange;
+	background:chocolate;
+	opacity: 0.7;
+}
+#box input[type='submit']{
+	border:0;
+	background:lightgreen;
+	display:block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid lightgreen;
+	padding: 15px 50px;
+	width: 200px;
+	outline:none;
+	color:white;
+	border-radius: 25px;
+	transition: 0.25s;
+	cursor:pointer;
+	font-family: 'Luckiest Guy';
+	color: whitesmoke;
+	font-weight: 30;
+	text-shadow: 1px 1px 5px black;
+	font-size: 20px;
+}
+::placeholder{
+	color: white;
+	opacity:1;
+	font-family: 'Georgia';
+	font-size: 20px;
+}
+#box input[type='submit']:hover{
+	background:darkgreen;
+	
+}
